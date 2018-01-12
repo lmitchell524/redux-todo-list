@@ -1,13 +1,13 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
-import '../assets/css/app.css';
-import logo from '../assets/images/logo.svg';
+import AddForm from './add_form';
+import List from './list';
+import { Route } from 'react-router-dom';
 
 const App = () => (
-    <div>
-        <div className="app">
-            <img src={logo} className="logo rotate"/>
-            <h1>Welcome to React</h1>
-        </div>
+    <div className="container">
+        <Route path="/" exact component={List}/>
+        <Route path="/add-item" component={AddForm}/>
     </div>
 );
 
