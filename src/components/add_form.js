@@ -9,9 +9,9 @@ class AddForm extends Component{
     handleAddItem(values){
         console.log("Form Submitted with:", values);
 
-        this.props.addItem(values);
-
-        this.props.history.push('/');
+        this.props.addItem(values).then( () => {
+            this.props.history.push('/');
+        });
     }
 
     renderInput({label, input, meta: { touched, error }}){
@@ -30,7 +30,7 @@ class AddForm extends Component{
         return(
             <div>
                 <div className="row my-4 justify-content-end">
-                    <Link className="btn btn-outline-primary" to="/">Home</Link>
+                    <Link className="btn btn-outline-primary" to="/">Back</Link>
                 </div>
                 <h1 className="text-center">Add to do Item</h1>
 
