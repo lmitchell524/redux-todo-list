@@ -31,11 +31,27 @@ export function getSingleItem(id){
     }
 }
 
+export function deleteItem(id){
+    const request = axios.delete(BASE_URL + '/todos/' + id + API_KEY);
+
+    return {
+        type: types.DELETE_ITEM,
+        payload: request
+    }
+}
+
+export function toggleItem(id){
+    const request = axios.put(BASE_URL + '/todos/' + id + API_KEY);
+
+    return {
+        type: types.TOGGLE_ITEM,
+        payload: request
+    }
+}
+
 /*
 
 axios.delete('http://api.reactprototypes.com/todos/[id#]?key=pizzaandbeer');
-
-looks like single item requst but w/ delete instead of get.
 
 axios.put('http://api.reactprototypes.com/todos/[id#]?key=pizzaandbeer');
 put will toggle item

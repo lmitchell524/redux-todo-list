@@ -9,10 +9,14 @@ const DEFAULT_STATE = {
 export default function(state = DEFAULT_STATE, action){
     switch(action.type){
         case types.GET_ITEMS:
-            return { ...state, list: action.payload.data.todos };
+            return {...state, list: action.payload.data.todos };
         case types.GET_SINGLE_ITEM:
-            console.log("Single item:", action);
             return { ...state, single: action.payload.data.todo };
+        // case types.DELETE_ITEM:
+        //     console.log("delete item:", action);
+        //     return {...state, delete: action.payload.data.todo };
+        case types.TOGGLE_ITEM:
+            return {...state, toggle: action.payload.data.todo};
         default:
             return state;
     }
