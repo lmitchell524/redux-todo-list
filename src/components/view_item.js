@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getSingleItem } from "../actions/index";
 
+
 class ViewItem extends Component{
 
     componentWillMount(){
@@ -10,8 +11,6 @@ class ViewItem extends Component{
     }
 
     render(){
-
-        console.log("view item props:", this.props);
 
         if(!this.props.single){
             return <h1>Loading...</h1>
@@ -22,7 +21,8 @@ class ViewItem extends Component{
                 <div className="row my-4 justify-content-end">
                     <Link className="btn btn-outline-primary" to="/">Back</Link>
                 </div>
-                <h1 className="text-center">View Item: {this.props.single.title}</h1>
+                <h1 className="text-center">{this.props.single.title}</h1>
+                <h3 className="text-center">Details: {this.props.single.details}</h3>
             </div>
         )
     }
